@@ -77,9 +77,9 @@ module.exports = function(grunt) {
         filename = processName(filepath);
 
         if (options.amd && options.namespace === false) {
-          return 'return ' + compiled;
+          return 'return ' + JSON.stringify(compiled);
         }
-        return nsInfo.namespace+'['+JSON.stringify(filename)+'] = '+compiled+';';
+        return nsInfo.namespace+'['+JSON.stringify(filename)+'] = '+JSON.stringify(compiled)+';';
       });
 
       if (output.length < 1) {
